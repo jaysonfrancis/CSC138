@@ -24,30 +24,30 @@ class clientThread(Thread):
  
     
   def run(self):
-    while self.running == 1:
-      try:
-        #(2) receiving the http request from connection
-        message = self.socket.recv(1024)
-        #(3) parsing the request to determine specific file being used
-        filename = message.split()[1]
-        #(4) opening up the requested file from the server's file system
-        f = open(filename[1:])
-        output = f.read()
-		#(5) create an HTTP response message consisting of the requested file preceded by header lines
-        self.socket.send('\nHTTP/1.1 200 OK\n')
-        self.socket.send('Connection: 37.13 miles')
-        self.socket.send('Date: Todays date\n')
-		#(6) Send the response over the TCP connection to the requesting browser
-        for i in range(0, len(output)):
-          self.socket.send(output[i])
-        self.socket.close()
+    try:
+      #(2) receiving the http request from connection
+      message = self.socket.recv(1024)
+      #(3) parsing the request to determine specific file being used
+      filename = message.split()[1]
+      #(4) opening up the requested file from the server's file system
+      f = open(filename[1:])
+      output = f.read()
+      #(5) create an HTTP response message consisting of the requested file preceded by header lines
+      self.socket.send('\nHTTP/1.1 200 OK\n')
+      self.socket.send('Connection: 37.13 miles')
+      self.socket.send('Date: Todays date\n')
+	  #(6) Send the response over the TCP connection to the requesting browser
+      for i in range(0, len(output)):
+        self.socket.send(output[i]) 
+
+      self.socket.close()
         
       #(7) If the file is not found, return 404 not found.   
-      except IOError:
-        print("Client Disconnection")
-        self.socket.send('404 Error File Not Found!\n')
-        self.running = 0
-        self.socket.close()
+    except IOError:
+      print("Client Disconnection")
+      self.socket.send('404 Error File Not Found!\n')
+      self.running = 0
+      self.socket.close()
         
 def main():
   #int a serversocket to use TCP connection
