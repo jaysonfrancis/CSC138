@@ -63,6 +63,8 @@ while True:
   except IOError:
         print 'Error: 404 Request sent to client'
         connectionSocket.send('404 Error File Not Found!\n')
+        connectionSocket.send('\nHTTP/1.1 200 OK\n')
+        connectionSocket.send('Connection: 37.13 miles')
         connectionSocket.close()
 
 print 'Server now unavailable'
