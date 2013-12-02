@@ -1,7 +1,68 @@
-# Jayson Francis
+# Jayson Francis / Karim Zahriya
 # CSC 138 - Computer Networking
 # Programming Assignment 2 - SMTP Client
 # Last Modified 11/17/2013
+
+
+
+################input ; python mailclient.py
+
+################output ; 
+
+#-----------------------------------
+#
+#----- Computer Networking 138 -----
+#
+#------- By: Jayson Francis --------
+#
+#-----------------------------------
+#
+#220 mx.google.com ESMTP er3sm124327888pbb.40 - gsmtp
+#
+#250-mx.google.com at your service, [130.86.73.117]
+#250-SIZE 35882577
+#250-8BITMIME
+#250-STARTTLS
+#250-ENHANCEDSTATUSCODES
+#250 CHUNKING
+#
+#220 2.0.0 Ready to start TLS
+#
+#334 VXNlcm5hbWU6
+#
+#334 UGFzc3dvcmQ6
+#
+#235 2.7.0 Accepted
+#
+#250 mx.google.com at your service
+#
+#MAIL FROM:<jaysonfranci@gmail.com>
+#
+#250 2.1.0 OK er3sm124327888pbb.40 - gsmtp
+#
+#RCPT TO:<jaysonfrancis@gmail.com>
+#
+#250 2.1.5 OK er3sm124327888pbb.40 - gsmtp
+#
+#DATA
+#
+#354  Go ahead er3sm124327888pbb.40 - gsmtp
+#
+#Enter Your Message: 
+
+#############input ; test
+
+#############output ; 
+
+#250 2.0.0 OK 1386010890 er3sm124327888pbb.40 - gsmtp
+#
+#QUIT
+#221 2.0.0 closing connection er3sm124327888pbb.40 - gsmtp
+
+
+
+
+
 
 # Importing modules, included ssl and base64
 from socket import *
